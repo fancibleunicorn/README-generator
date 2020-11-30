@@ -20,7 +20,7 @@
   
   ## Usage 
 
-  AFter navigating to the project folder in your terminal, run "node index" to start the program.  Then follow the prompted questions to fill out the README file.  Once finished, the file will then be generated as README.md in the Develop folder.
+  After navigating to the project folder "develop" in your terminal, run "node index" to start the program.  Then follow the prompted questions to fill out the README file.  Once finished, the file will then be generated as README.md in the Develop folder.
   
   ## Contributing
 

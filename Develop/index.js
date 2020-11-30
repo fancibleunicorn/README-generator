@@ -128,16 +128,12 @@ const questions = [
 
 ];
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
 // function to initialize program
 function init() {
     return inquirer.prompt(questions)
     .then((answers) => {
         console.log(answers);
-        fs.writeFile('README.md', generateMarkdown(answers), err => {
+        fs.writeFile('README-template.md', generateMarkdown(answers), err => {
           if (err) throw err;});
     })
   

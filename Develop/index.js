@@ -1,5 +1,9 @@
 const inquirer = require('inquirer');
 
+const fs = require('fs');
+
+const generateMarkdown = require('./utils/generateMarkdown');
+
 // array of questions for user
 const questions = [
     //GitHub
@@ -117,7 +121,7 @@ const questions = [
     // License
     {
         type: 'list',
-        name: 'License',
+        name: 'license',
         message: 'Select a license for your project',
         choices: ['Apache', 'Boost', 'Eclipse', 'IBM', 'MIT', 'Mozilla', 'WTFPL']
       },
@@ -130,11 +134,16 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
-    return inquirer.prompt(questions).then(function(answers){
+    return inquirer.prompt(questions)
+    .then((answers) => {
         console.log(answers);
-    });
+        fs.writeFile('README.md', generateMarkdown(answers), err => {
+          if (err) throw err;});
+    })
+  
 
 }
 
 // function call to initialize program
-init();
+init()
+
